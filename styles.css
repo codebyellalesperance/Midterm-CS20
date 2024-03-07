@@ -84,7 +84,6 @@ ul a:hover,.selected {
     text-decoration: none; /* Removes underline */
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s; /* Smooth background color transition on hover */
-    /* text-wrap: wrap; */
     display: inline-block;
     text-align: center;
 }
@@ -92,7 +91,7 @@ ul a:hover,.selected {
 .nav-button:hover {
     background-color: #512C1D; /* Darker shade on hover */
     color: white; /* Text color */
-    padding-bottom: 1vh; /* Remove changes made for hovering over normal links in nav */
+    padding-bottom: 1.5vh; /* Remove changes made for hovering over normal links in nav */
     border-bottom: none;
 }
 
