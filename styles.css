@@ -137,3 +137,7 @@ ul a:hover,.selected {
     list-style-type: none;
     padding: 0;
 }
+
+main {
+    margin-bottom: 7vw;
+}
