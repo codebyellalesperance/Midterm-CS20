@@ -10,7 +10,66 @@
         #page-title {
             background-image: url("images/img5.webp");
         }
+        
+        #inner-body {
+            margin: 30px 10vw 0 4vw;
+        }
+        
+        #donation-form {
+            font-size: max(16px, 1.7vw);
+            margin-left: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-right: 2vw;
+        }
+        
+        input {
+            font-size: max(14px, 1.5vw);;
+        }
+        
+        input[type="number"] {
+            width: 10%;
+            min-width: 50px;
+            font-size: max(14px, 1.5vw);;
+        }
+        
+        input[type="submit"] {
+            width: 80%;
+        }
+        
+        .section-box {
+            width: 100%
+        }
+        
+        .field {
+            display: flex;
+            margin: max(5px, 1vw) 0;
+            flex-direction: column;
+            line-height: max(28px, 3vw);
+            width: 80%;
+        }
+        
     </style>
+    
+    <script>
+        function validate() {
+            var form = document.getElementById("donation-form");
+            var inputs = form.getElementsByTagName("input");
+            console.log(inputs)
+            var valid = true;
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value === "") {
+                    valid = false;
+                    inputs[i].style.border = "1px solid red";
+                }
+            }
+            return valid;
+        }
+    </script>
+    
 </head>
 <body>
     <header>
@@ -37,8 +96,33 @@
         <section id="page-title" class="background">
             <h1>Donate</h1>
         </section>
-        <h3>Support Us Today!</h3>
-        <p>Thank you for choosing to support us here at Tufts Zoo. We employ many experts to make sure that the animals at our zoo are living the best lives that they can. Your donation means the world to us and not only helps us care for the animals, but also advances research so that we can help animals all across the world.</p>
+        <div id="inner-body">
+            <div id="intro">
+                <h3>Support Us Today!</h3>
+                <p>Thank you for choosing to support us here at Tufts Zoo. We employ many experts to make sure that the animals at our zoo are living the best lives that they can. Your donation means the world to us and not only helps us care for the animals, but also advance research so that we can help animals all around the world.</p>
+            </div>
+            <form id="donation-form" class="section-box" onSubmit="return validate()" method="get">
+                <div class="field">
+                    <span>
+                        <label>Donation Amount (USD): </label><input type="number" name="donation-amount" placeholder="0">
+                    </span>
+                </div>
+                <div class="field">
+                    <label>First Name: </label><input type="text" name="first-name">
+                </div>
+                <div class="field">
+                    <label>Last Name: </label><input type="text" name="last-name">
+                </div>
+                <div class="field">
+                    <label>Email: </label><input type="email" name="email">
+                </div>
+                <div class="field">
+                    <label>Comments (optional): </label><textarea name="comments" rows="8" cols="50"></textarea>
+                </div>
+                <input type="submit" value="Continue to Checkout">
+                
+            </form>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Tufts Zoo. All rights reserved.</p>
