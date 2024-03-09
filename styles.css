@@ -125,9 +125,10 @@ ul a:hover,.selected {
     background-color: #f9f9f9;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* border-radius: 8px; */
-    padding: 10px;
+    padding: 1vw;
     margin: 30px auto;
     width: 80%;
+    font-size: 1.5vw;
 }
 
 .section-box-list {
