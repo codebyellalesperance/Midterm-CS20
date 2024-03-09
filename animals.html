@@ -8,11 +8,101 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        .background {
+        #page-title {
             background-image: url("images/img2.webp");
         }
+        
+        li.background {
+            height: 40vw;
+            min-height: 150px;
+            max-height: 450px;
+        }
+        
+        .animal {
+            color: #ffffff;
+        }
+        
+        .animal:hover {
+            cursor: pointer;
+        }
+        
+        li span {
+            background-color: rgba(25, 25, 25, 0.7);
+            padding: 1vw;
+        }
+        
+        .label {
+            font-size: 6vw;
+        }
+        
+        .animal-info {
+            width: 70%;
+            max-height: 70%;
+            font-size: 2.5vw;
+            overflow: auto;
+        }
+        
+        .row {
+            display: flex;
+            margin-bottom: 5vw;
+        }
 
+        .column {
+            flex: 50%;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+        
+        .section-box-list {
+            height: auto;
+        }
+        
+        .section-box {
+            width: 90%;
+            padding: 1vw;
+            margin-bottom: 0px;
+        }
+        
     </style>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <script>
+    window.onload = function()
+    {
+        // Get all animals
+        var animals = Array.from(document.getElementsByClassName("animal"));
+        
+        // Hide animal info
+        $('.animal-info').hide();
+        
+        // Set up animals
+        animals.forEach(function(animal) {
+            // Set background images
+            animal.style.backgroundImage = "url('images/animal_" + animal.id + ".webp')";
+            
+            // Add event listeners
+            animal.addEventListener("click", function() {
+                // Swap between animal info and label on click
+                if ($(animal).children('.label').is(":visible")) {
+                    $(animal).children('.label').fadeToggle(callback=function() {
+                        $(animal).children('.animal-info').fadeToggle();
+                    });
+                } else {
+                    $(animal).children('.animal-info').fadeToggle(callback=function() {
+                        $(animal).children('.label').fadeToggle();
+                    });
+                }
+            });
+        });   
+    }
+    </script>
+    
+    
 </head>
 <body>
     <header>
@@ -36,28 +126,26 @@
     </header>
     
     <main>
-        <section class="background">
+        <section id="page-title" class="background">
             <h1>Animals</h1>
         </section>
-        <ul class="section-box-list">
-            <li class="section-box">test</li>
-            <li class="section-box">test</li>
-            <li class="section-box">test</li>
-            <li class="section-box">test</li>
-            <li class="section-box">test</li>
-            <li class="section-box">test</li>
-        </ul>
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
-        <br/>1
+        <div class="row">
+            <div class="column">
+                <ul class="section-box-list">
+                    <li id="elephant" class="animal section-box background"><span class="label">Elephants</span> <span class="animal-info">Elephants are large land mammals with exceptional control over their trunks which they use to eat, drink, and more! At Tufts Zoo, we have a herd of five adult and three young elephants.</span></li>
+                    <li id="flamingo" class="animal section-box background"><span class="label">Flamingos</span><span class="animal-info">Flamingos are highly social birds that live in large flocks. Their signature pink or red color comes from the pigments of the food that they eat. At Tufts Zoo, we have a flock of over fifty flamingos!</span></li>
+                    <li id="giraffe" class="animal section-box background"><span class="label">Giraffes</span><span class="animal-info">Giraffes are famous for their extremely long necks, but they also have very long tongues that further help them to eat leaves from tall trees! At Tufts Zoo, we have a tower of fourteen giraffes.</span></li>
+                </ul>
+            </div>
+            <div class="column">
+                <ul class="section-box-list">
+                    <li id="lion" class="animal section-box background"><span class="label">Lions</span><span class="animal-info">Lionesses are the primary hunters of groups of lions, called prides, while male lions usually work as defenders. At Tufts Zoo, we have eight adult lions and sixteen cubs.</span></li>
+                    <li id="macaw" class="animal section-box background"><span class="label">Macaws</span><span class="animal-info">Macaws come in a variety of striking color combinations. Pictured here are a few blue and gold macaws, but at Tufts Zoo, we have over a hundred macaws with varying palettes!</span></li>
+                    <li id="zebra" class="animal section-box background"><span class="label">Zebras</span><span class="animal-info">Zebras are known for their striped patterns that could serve many purposes, with no two zebras sharing the same pattern! At Tufts Zoo, we have nineteen zebras.</span></li>
+                </ul>
+            </div>
+        </div> 
+
     </main>
     <footer>
         <p>&copy; 2024 Tufts Zoo. All rights reserved.</p>
