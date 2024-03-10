@@ -41,9 +41,9 @@
             width: 80%;
             margin: 15px 0;
             background-color: #6ea3e0;
-            color: white; /* Text color */
-            padding: 10px 0; /* Button padding */
-            border-radius: 5px; /* Rounded corners */
+            color: white;
+            padding: 10px 0;
+            border-radius: 5px;
         }   
         
         input[type=submit]:hover {
@@ -76,16 +76,21 @@
     
     <script>
         function validate() {
+            // Get all the input elements
             var form = document.getElementById("donation-form");
             var inputs = form.getElementsByTagName("input");
-            console.log(inputs)
             var valid = true;
+            
+            // Change the border of each invalid input to red
             for (var i = 0; i < inputs.length; i++) {
                 if (inputs[i].value === "") {
                     valid = false;
-                    inputs[i].style.border = "1px solid red";
+                    inputs[i].style.border = "1px solid #ff0000";
+                } else {
+                    inputs[i].style.border = "1px solid #000000";
                 }
             }
+            
             return valid;
         }
     </script>
