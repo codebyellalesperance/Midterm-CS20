@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tufts Zoo Tickets page</title>
+    <link rel="icon" type="image/x-icon" href="elephant.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error {
+            color: red;
+            margin-top: 5px;
+            display: none; /* Hide the error message initially */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Purchase Tickets</h1>
+    </header>
+
+    <form id="ticket-form" novalidate>
+        <div style="padding-bottom:10px; margin-left:30px">
+            <label for="adult-tickets">Adult Tickets:</label>
+            <input type="number" name="adult-tickets" id="adult-tickets" value="0">
+        </div>
+        <div style="padding-bottom:10px; margin-left:30px">
+            <label for="child-senior-tickets">Child/Senior Tickets:</label>
+            <input type="number" name="child-senior-tickets" id="child-senior-tickets" value="0">
+        </div>
+        <div style="padding-bottom:10px; margin-left:30px">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div style="padding-bottom:10px; margin-left:30px">
+            <label for="credit-card">Credit Card Number:</label>
+            <input type="text" name="credit-card" id="credit-card">
+        </div>
+        <div style="padding-bottom:10px; margin-left:30px">
+            <label for="security-code">Security Code:</label>
+            <input type="text" name="security-code" id="security-code">
+        </div>
+        <div style="padding-bottom:10px; margin-left:30px">
+            <label for="expiration-date">Expiration Date:</label>
+            <input type="text" name="expiration-date" id="expiration-date">
+        </div>
+        <div class="error" id="submit-error">&nbsp;</div>
+        <input type="submit" value="Submit" style="margin-left:30px">
+    </form>
+
+    <div id="results" style="padding-top:15px; margin-left:30px">&nbsp;</div>
+
+    <script>
+        function showMoney(number) {
+            Round = Math.floor(number * 100 + 0.5);
+            Rounded = parseInt(Round);
+            temp = Rounded;
+            Rounded = Rounded / 100;
+            if (temp % 100 == 0) {
+                return Rounded.toString() + ".00";
+            } else if (temp % 10 == 0) {
+                return Rounded.toString() + "0";
+            } else {
+                return Rounded.toString();
+            }
+        }
+
+        const AdultTicketPrice = 37;
+        const ChildSeniorTicketPrice = 30;
+
+        $(document).ready(function() {
+            $("#ticket-form").submit(function(event) {
+                event.preventDefault();
+                var adultTickets = parseInt($("#adult-tickets").val());
+                var childSeniorTickets = parseInt($("#child-senior-tickets").val());
+                var email = $("#email").val();
+                var creditCard = $("#credit-card").val();
+                var securityCode = $("#security-code").val();
+                var expirationDate = $("#expiration-date").val();
+                var submitError = $("#submit-error");
+
+                submitError.hide().html('&nbsp;'); // Hide and reset the submit error message
+
+                if (adultTickets <= 0 || childSeniorTickets <= 0) {
+                    submitError.html('Please enter valid ticket quantities.').show();
+                    return;
+                }
+
+                if (!email || email.indexOf('@') === -1) {
+                    submitError.html('Please enter a valid email.').show();
+                    return;
+                }
+
+                if (creditCard.length !== 16) {
+                    submitError.html('Please enter a valid 16-digit credit card number.').show();
+                    return;
+                }
+
+                if (securityCode.length !== 3) {
+                    submitError.html('Please enter a valid 3-digit security code.').show();
+                    return;
+                }
+
+                if (expirationDate.length !== 5) {
+                    submitError.html('Please enter a valid expiration date (MM/YY).').show();
+                    return;
+                }
+
+                var totalAdultCost = adultTickets * AdultTicketPrice;
+                var totalChildSeniorCost = childSeniorTickets * ChildSeniorTicketPrice;
+                var subtotal = totalAdultCost + totalChildSeniorCost;
+                var tax = subtotal * 0.0625;
+                var finalTotal = subtotal + tax;
+
+                var confirmation = "Thank you for your purchase!<br>";
+                confirmation += "Adult Tickets: " + adultTickets + "    Price: $" + showMoney(totalAdultCost) + "<br>";
+                confirmation += "Child/Senior Tickets: " + childSeniorTickets + "  Price: $" + showMoney(totalChildSeniorCost) + "<br>";
+                confirmation += "Subtotal: $" + showMoney(subtotal) + "<br>";
+                confirmation += "Tax Amount: $" + showMoney(tax) + "<br>";
+                confirmation += "Final Total: $" + showMoney(finalTotal) + "<br>";
+                confirmation += "A Confirmation Email With Tickets Will Be Sent to: " + email;
+
+                var results = $("#results");
+                results.html(confirmation);
+            });
+        });
+    </script>
+</body>
+</html>
