@@ -18,6 +18,7 @@
         #donation-form {
             font-size: max(16px, 1.7vw);
             margin-left: 0;
+            padding-left: 5vw;
             display: flex;
             flex-direction: column;
         }
@@ -38,6 +39,16 @@
         
         input[type="submit"] {
             width: 80%;
+            margin: 15px 0;
+            background-color: #6ea3e0;
+            color: white; /* Text color */
+            padding: 10px 0; /* Button padding */
+            border-radius: 5px; /* Rounded corners */
+        }   
+        
+        input[type=submit]:hover {
+            background-color: #512C1D;
+            cursor: pointer;
         }
         
         .section-box {
@@ -50,6 +61,15 @@
             flex-direction: column;
             line-height: max(28px, 3vw);
             width: 80%;
+        }
+        
+        @media screen and (max-width: 768px){
+            .field {
+                width: 95%;
+            }
+            input[type="submit"] {
+                width: 95%;
+            }   
         }
         
     </style>
