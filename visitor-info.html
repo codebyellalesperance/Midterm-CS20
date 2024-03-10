@@ -16,24 +16,24 @@
         }
 
         .background {
-            /* height: 100vh; */
+            height: 100vh;
             background-image: url("images/img6.webp");
-            /* background-repeat: no-repeat;
+            background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center; */
+            text-align: center;
         }
 
-        /* .background h1 {
+        .background h1 {
             color: #ffffff;
             font-size: 140px;
             margin: 0;
-        } */
+        }
 
-        .content-section, .section-box, .ticket-option, .rain-policy, .visitor-guidelines, .parking, .Parking-text, .Rain-text {
+        .content-section, .section-box, .ticket-option, .rain-policy, .visitor-guidelines, .parking, .Parking-text, .Rain-text, .Visitor-text {
             text-align: center;
             /* padding-top: 10px; */
         }
@@ -42,7 +42,7 @@
             color: #333;
         }
 
-        .content-section p, .section-box p, .ticket-option p, .rain-policy p, .Rain-text p, .Parking-text p {
+        .content-section p, .section-box p, .ticket-option p, .rain-policy p, .Rain-text p, .Parking-text p, .Visitor-text p {
             font-size: 18px;
             line-height: 1.6;
             color: #666;
@@ -94,27 +94,52 @@
             }
         }
 
-        /* .section-box {
+        .section-box {
             border: 2px solid #333;
             background-color: #f9f9f9;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-            /* border-radius: 8px; */
-            /* padding: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
             margin: 30px auto;
             width: 80%;
-        } */
+        }
 
         .Rain-text {
             text-align: center;
             margin: 20px 0;
-            padding-bottom: 140px;
+            padding-bottom: px;
         }
 
         .Parking-text {
             margin: 20px 0;
-            padding-bottom: 140px;
+            padding-bottom: 80px;
         }
 
+        .Visitor-text h2 {
+            font-size: 24px;
+            font-weight: bold;
+            padding-bottom: px;
+        }
+
+        #tix {
+            display: block;
+            margin: 0 auto;
+            padding-top: 25px;
+            background-color: #4b4242;
+            color: #ffffff;
+            padding: 15px 80px;
+            font-size: 18px;
+        }
+
+        .Buy-tickets {
+            padding-top: 25px;
+        }
+
+        .Buy-tickets a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 32px;
+        }
 
     </style>
 </head>
@@ -146,8 +171,10 @@
             <h1>Visitor Info</h1>
         </section>
 
-        <div class="content-section">
+        <div class="section-box admissions">
             <h1>Admission Information</h1>
+        </div>
+        <div class="content-section">
             <div class="ticket-options-container">
                 <!-- Online Ticket Prices Box -->
                 <div class="ticket-option">
@@ -164,7 +191,11 @@
                 </div>
             </div>
         </div>
-        <!-- Parking Section -->
+        
+        <div class="Buy-tickets">
+            <button id="tix"><a href="tickets.html" target="blank">Buy Tickets Now! </a></button>
+        </div>
+
         <div class="section-box rain">
             <h1>Rain Policy</h1>
         </div>
@@ -175,10 +206,28 @@
             <p>We encourage you to dress accordingly, or check out our gift shop for rain gear during your visit. </p>
         </div>
 
-        <!-- Visitor Guidelines Section
+        <!-- Visitor Guidelines Section -->
         <div class="section-box visitor-guidelines">
             <h1>Visitor Guidelines</h1>
-        </div> -->
+        </div>
+        <div class="Visitor-text">
+            <p> 1. Respect the animals. </p>
+            <p> 2. Follow the instructions of the staff at all times. </p>
+            <p> 3. Be kind and respectful to other visitors. </p>
+            <p> 4. Specific exhibits may have different guidelines posted. </p>
+            <p> 5. Wash your hands often. </p>
+            <p> 6. Bags may be briefly checked at the entrance. </p>
+            <p> 7. No outide food is allowed.</p>
+            <p> 8. Photography is allowed and encouraged. </p>
+            <p> 9. Do not throw objects or food into an animal enclosure. </p>
+            <p> 10. Children must be supervised at all times. </p>
+            <p> 11. Refrain from running at the zoo. </p>
+            <p> 12. Pets are not allowed. </p>
+            <p> 13. Do not try to touch the animals. </p>
+            <p> 14. Guests must wear proper attire. </p>
+            <p> 15. Alchohol and Smoking is absolutely not permitted. </p>
+            <h2> Failure to be in compliance with the rules above may lead to immediate removal from the zoo grounds.</h2>
+        </div>
 
         <!-- Parking Section -->
         <div class="section-box parking">
