@@ -51,8 +51,18 @@
             cursor: pointer;
         }
         
+        .small-label {
+            margin-right: 0.5vw;
+        }
+        
+        .small-text {
+            width: 10%;
+            min-width: 50px;
+            margin-right: 2vw;
+        }
+        
         .section-box {
-            width: 100%
+            width: 100%;
         }
         
         .field {
@@ -73,21 +83,65 @@
         }
         
     </style>
-    
+
     <script>
         function validate() {
             // Get all the input elements
             var form = document.getElementById("donation-form");
             var inputs = form.getElementsByTagName("input");
             var valid = true;
+            var amount = inputs[0];
+            var card = inputs[4];
+            var cvv = inputs[5];
+            var expiration = inputs[6];
             
-            // Change the border of each invalid input to red
+            
+            // Required inputs shouldn't be empty
             for (var i = 0; i < inputs.length; i++) {
-                if (inputs[i].value === "") {
+                if (inputs[i].value == "") {
                     valid = false;
                     inputs[i].style.border = "1px solid #ff0000";
                 } else {
                     inputs[i].style.border = "1px solid #000000";
+                }
+            }
+            
+            // Donation amount should be a positive integer
+            if (amount.value <= 0) {
+                valid = false;
+                amount.style.border = "1px solid #ff0000";
+            } else {
+                amount.style.border = "1px solid #000000";
+            }
+            
+            // Card number should be a 16 digit integer
+            if (card.value.length != 16 || isNaN(card.value)) {
+                valid = false;
+                card.style.border = "1px solid #ff0000";
+            } else {
+                card.style.border = "1px solid #000000";
+            }
+            
+            // Security code should be a 3 digit integer
+            if (cvv.value.length !== 3 || isNaN(cvv.value)) {
+                valid = false;
+                cvv.style.border = "1px solid #ff0000";
+            } else {
+                cvv.style.border = "1px solid #000000";
+            }
+            
+            // Expiration date should be in the format MM/YY
+            if (expiration.value.length !== 5 || expiration.value[2] !== "/") {
+                valid = false;
+                expiration.style.border = "1px solid #ff0000";
+            } else {
+                var expiry = expiration.value.split("/");
+                // Month should be an integer between 1 and 12, year should be 24 or later
+                if (expiry.length !== 2 || isNaN(expiry[0]) || isNaN(expiry[1]) || expiry[0] < 1 || expiry[0] > 12 || expiry[1] < 24) {
+                    valid = false;
+                    expiration.style.border = "1px solid #ff0000";
+                } else {
+                    expiration.style.border = "1px solid #000000";
                 }
             }
             
@@ -129,22 +183,31 @@
             <form id="donation-form" class="section-box" onSubmit="return validate()" method="get">
                 <div class="field">
                     <span>
-                        <label>Donation Amount (USD): </label><input type="number" name="donation-amount" placeholder="0">
+                        <label for="amount">Donation Amount (USD): </label><input type="number" id="amount" name="donation-amount" placeholder="0">
                     </span>
                 </div>
                 <div class="field">
-                    <label>First Name: </label><input type="text" name="first-name">
+                    <label for="first">First Name: </label><input type="text" id="first" name="first-name">
                 </div>
                 <div class="field">
-                    <label>Last Name: </label><input type="text" name="last-name">
+                    <label for="last">Last Name: </label><input type="text" id="last" name="last-name">
                 </div>
                 <div class="field">
-                    <label>Email: </label><input type="email" name="email">
+                    <label for="email">Email: </label><input type="email" id="email" name="email">
                 </div>
                 <div class="field">
-                    <label>Comments (optional): </label><textarea name="comments" rows="8" cols="50"></textarea>
+                    <label for="card">Credit Card Number: </label><input type="text" id="card" name="credit-card" placeholder="Please enter your 16-digit card number">
                 </div>
-                <input type="submit" value="Continue to Checkout">
+                <div class="field">
+                    <span>
+                        <label class="small-label" for="cvv">Security Code: </label><input type="text" class="small-text" id="cvv" name="security-code" placeholder="123">
+                        <label class="small-label" for="expiration">Expiration Date: </label><input type="text" id="expiration" class="small-text" name="expiration-date" placeholder="MM/YY">
+                    </span>
+                </div>
+                <div class="field">
+                    <label for="comments">Comments (optional): </label><textarea id="comments" name="comments" rows="8" cols="50"></textarea>
+                </div>
+                <input type="submit" value="Checkout">
                 
             </form>
         </div>
