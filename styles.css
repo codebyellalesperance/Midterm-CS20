@@ -16,7 +16,7 @@ header {
     display: flex;
     text-decoration: none; 
     color: inherit; 
-    width: 20vw;
+    width: 12vw;
     align-items: center;
 }
 
@@ -44,7 +44,7 @@ nav ul {
 
 nav ul li {
     margin: 0 1vw;
-    font-size: 1.8vw;
+    font-size: 1.4vw;
 }
 
 nav ul li a {
