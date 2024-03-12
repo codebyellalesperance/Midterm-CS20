@@ -74,23 +74,30 @@
 
         .content-section {
             text-align: center;
-            padding: 50px 0; /* Add padding top and bottom */
-            display: flex; /* Changed to flexbox */
-            justify-content: space-around; /* Spaced the section boxes evenly */
-            flex-wrap: wrap; /* Allow wrapping */
+            padding: 50px 0; 
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
         }
 
         .section-box {
             border: 2px solid #333;
-            background-color: #fff; /* White background */
-            padding: 30px; /* Increased padding */
+            background-color: #fff;
+            padding: 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            margin: 15px; /* Reduced margin for closer boxes */
-            width: 40%; /* Further reduced width for better spacing */
-            max-width: 400px; /* Added maximum width */
-            text-align: left; /* Left-align text */
+            margin: 15px; 
+            width: 40%; 
+            /* max-width: 400px;  */
+            text-align: left; 
             transition: transform 0.3s; 
+        }
+        
+        /* collapse into single column on smaller screen */
+        @media screen and (max-width: 930px) {
+            .section-box {
+                width: 80%;
+            }
         }
 
 
@@ -102,7 +109,7 @@
             text-align: center;
             color: #333;
             font-size: 24px;
-            margin-top: 0; /* Removed margin top */
+            margin-top: 0; 
         }
 
         .section-box p {
@@ -115,7 +122,7 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px 0; /* Add padding top and bottom */
+            padding: 20px 0; 
         }
 
     </style>
