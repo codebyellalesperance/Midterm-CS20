@@ -5,6 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tufts Zoo Homepage</title>
     <link rel="icon" type="image/x-icon" href="elephant.png">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            height: 50vh; /* Adjusted for a better look */
+            background-image: url("images/img1.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: #ffffff; /* White text for better visibility on the background */
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .about-content div {
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 30px auto;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: adds a subtle shadow */
+            text-align: center; /* Center text */
+        }
+
+        .content-section h2 {
+            text-align: center; /* Center the h2 headings */
+            font-size: 32px; /* Increase the font size of h2 headings */
+            color: #ffffff; /* Ensure h2 is also white for better readability */
+        }
+        
+        .content-section p {
+            text-align: center; /* Center the h2 headings */
+            
+            font-size: 18px; /* Adjust paragraph font size if necessary */
+            line-height: 1.6; /* Improve readability */
+        }
+    </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -30,7 +82,35 @@
     
     <main>
         <section>
-            <img src="images/img1.webp" class="background" />
+
+            <section class="background">
+                <h1>About Us</h1>
+            </section>
+            
+            <div class="about-content">
+                <div>
+                    <h2>Our Story</h2>
+                    <p>Welcome to Tufts Zoo, where our journey began over half a century ago in the heart of our community. What started as a family-run sanctuary has blossomed into a beacon of animal conservation and education.</p>
+                </div>
+                <div>
+                    <h2>Our Mission</h2>
+                    <p>At Tufts Zoo, our mission is to inspire a love for nature and wildlife in every visitor. We're committed to providing a safe haven for endangered species and to fostering a deep understanding of the precious balance within our ecosystem.</p>
+                </div>
+                <div>
+                    <h2>Our Commitment to Conservation</h2>
+                    <p>Conservation is not just a concept here; it's our way of life. We actively participate in international breeding programs, contribute to scientific research, and work tirelessly to protect animal habitats around the globe.</p>
+                </div>
+                <div>
+                    <h2>Experience the Wild</h2>
+                    <p>We invite you to explore our diverse array of exhibits, which are designed to give you a glimpse into the wild worlds of the animals we care for. From the African savannahs to the Amazon rainforests, embark on an adventure that will take you around the globe.</p>
+                </div>
+                <div>
+                    <h2>Join Us</h2>
+                    <p>Whether you're a lifelong animal lover or a curious newcomer, we welcome you to join us on this journey. Your visit, support, and enthusiasm help us to continue our critical work in conservation. We can't wait to share our passion with you!</p>
+            
+                </div>
+            </div>
+        </main>
         </section>
     </main>
     <footer>
