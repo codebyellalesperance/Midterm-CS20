@@ -60,6 +60,7 @@
         
         .section-box {
             width: 100%;
+            padding-left: 5vw;
         }
         
         .field {
@@ -68,6 +69,10 @@
             flex-direction: column;
             line-height: max(28px, 3vw);
             width: 80%;
+        }
+        
+        #results {
+            visibility: hidden;
         }
         
         @media screen and (max-width: 768px){
@@ -199,6 +204,7 @@
 
 
                 var results = $("#results");
+                results.css("visibility", "visible");
                 results.html(confirmation);
 
             }
@@ -271,9 +277,11 @@
                 <input type="submit" value="Checkout">
                 
             </form>
+            
+            <div id="results" class="section-box" style="padding-top:12px;">&nbsp;</div>
         </div>
 
-        <div id="results" style="padding-top:12px; margin-left:4vw">&nbsp;</div>
+
 
     </main>
     <footer>
