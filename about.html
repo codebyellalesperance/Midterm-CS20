@@ -3,9 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tufts Zoo Homepage</title>
+    <title>Tufts Zoo - About Us</title>
     <link rel="icon" type="image/x-icon" href="elephant.png">
     <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9; /* Light gray background */
+        }
+
+        .background {
+            height: 100vh;
+            background-image: url("images/img-josh1.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .background h1 {
+            color: #ffffff;
+            font-size: 80px; /* Adjusted font size */
+            margin: 0;
+        }
+
+        .content-section {
+            text-align: center;
+            padding: 50px 0; /* Add padding top and bottom */
+            display: flex; /* Changed to flexbox */
+            justify-content: space-around; /* Spaced the section boxes evenly */
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+
+        .section-box {
+            border: 2px solid #333;
+            background-color: #fff; /* White background */
+            padding: 30px; /* Increased padding */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 15px; /* Reduced margin for closer boxes */
+            width: 40%; /* Further reduced width for better spacing */
+            max-width: 400px; /* Added maximum width */
+            text-align: left; /* Left-align text */
+            transition: transform 0.3s; 
+        }
+
+
+        .section-box:hover {
+            transform: translateY(-5px); /* Added hover effect */
+        }
+
+        .section-box h1 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 0; /* Removed margin top */
+        }
+
+        .section-box p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0; /* Add padding top and bottom */
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -22,20 +96,40 @@
                     <li><a href="donate.html">Give Back</a></li>
                     <li><a href="conservation.html">Conservation</a></li>
                     <li><a href="contact.html" class="nav-button">Visit Us!</a></li>
-
                 </ul>
             </nav>
         </div>
     </header>
     
     <main>
-        <section>
-            <img src="images/img1.webp" class="background" />
+        <section class="background">
+            <h1>About Us</h1>
         </section>
+
+        <div class="content-section">
+            <div class="section-box">
+                <h1>Our History</h1>
+                <p>The Tufts Zoo was established in 1950 with the goal of providing a sanctuary for endangered species. Over the course of the last 74 years, we have welcomed over 10 million people. <p>
+            </div>
+
+            <div class="section-box">
+                <h1>Our Mission</h1>
+                <p>At the Tufts Zoo, our mission is to promote wildlife conservation, provide education about endangered species, and offer unforgettable experiences for our visitors.<p>
+            </div>
+
+            <div class="section-box">
+                <h1>Our Team</h1>
+                <p>Our team of dedicated professionals includes zoologists, veterinarians, educators, and conservationists who work tirelessly to ensure the health and well-being of our animal residents.<p>
+            </div>
+
+            <div class="section-box">
+                <h1>Conservation Efforts</h1>
+                <p>We actively participate in conservation programs aimed at protecting endangered species and their habitats. This ensures that you have a good time, and so do our animals.<p>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Tufts Zoo. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>
 </body>
 </html>

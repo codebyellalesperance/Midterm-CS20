@@ -3,9 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tufts Zoo Homepage</title>
+    <title>Contact Us - Tufts Zoo</title>
     <link rel="icon" type="image/x-icon" href="elephant.png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333; /* Dark text color */
+        }
+
+        .background {
+            height: 100vh;
+            background-image: url("images/img4.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .background h1 {
+            color: #ffffff;
+            font-size: 140px;
+            margin: 0;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Add text shadow for better visibility */
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px; /* Increase padding */
+            background-color: rgba(255, 255, 255, 0.9); /* Light white background with transparency */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow for depth */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px; /* Add space below heading */
+            font-size: 36px; /* Increase font size */
+            color: #333; /* Dark text color */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label, input, textarea, button {
+            margin: 10px;
+        }
+
+        input, textarea {
+            width: calc(100% - 20px); /* Adjust width to consider margin */
+            padding: 15px; /* Increase padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px; /* Adjust font size */
+        }
+
+        textarea {
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        button {
+            width: 100%; /* Make button full width */
+            background-color: #4CAF50; /* Green background color */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 15px; /* Increase padding */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px; /* Adjust font size */
+            text-transform: uppercase; /* Uppercase text */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,20 +113,30 @@
                     <li><a href="donate.html">Give Back</a></li>
                     <li><a href="conservation.html">Conservation</a></li>
                     <li><a href="contact.html" class="nav-button">Visit Us!</a></li>
-
                 </ul>
             </nav>
         </div>
     </header>
     
     <main>
-        <section>
-            <img src="images/img4.webp" class="background" />
-
-            
-            
+        <section class="background">
+            <h1>Contact Us</h1>
         </section>
+
+        <div class="content-section">
+            <h1>Send us a message</h1>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </main>
+    
     <footer>
         <p>&copy; 2024 Tufts Zoo. All rights reserved.</p>
     </footer>
