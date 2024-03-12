@@ -17,14 +17,20 @@
             margin: 0 2vw;
         }
         
-        h3 {
+        h2 {
             font-size: 3vw;
+            margin: 0 4vw;
+        }
+        
+        h3 {
+            font-size: 2.5vw;
         }
 
         main p {
-            font-size: 3vw;
+            font-size: 2vw;
             line-height: 1.6;
             color: #666;
+            margin: 10px 4vw;
         }
 
         .ticket-options-container {
@@ -61,45 +67,34 @@
             padding: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            margin: 30px auto;
+            margin: 50px auto 20px;
             width: 80%;
-        }
-
-        .Rain-text {
-            text-align: center;
-            margin: 20px 0;
-            padding-bottom: px;
         }
 
         .Parking-text {
             margin: 20px 0;
-            padding-bottom: 80px;
-        }
-
-        .Visitor-text h2 {
-            font-size: 24px;
-            font-weight: bold;
-            padding-bottom: px;
+            padding-bottom: 20px;
         }
 
         #tix {
             display: block;
             margin: 0 auto;
-            padding-top: 25px;
             background-color: #4b4242;
             color: #ffffff;
-            padding: 15px 80px;
-            font-size: 18px;
+            padding: 3vw 10vw;
+            font-size: 2.5vw;
         }
-
-        .Buy-tickets {
-            padding-top: 25px;
+        
+        #tix:hover {
+            cursor: pointer;
         }
 
         .Buy-tickets a {
-            color: #ffffff;
             text-decoration: none;
-            font-size: 32px;
+        }
+        
+        .admissions {
+            margin-top: 20px;
         }
 
     </style>
@@ -154,7 +149,7 @@
         </div>
         
         <div class="Buy-tickets">
-            <button id="tix"><a href="tickets.html" target="blank">Buy Tickets Now! </a></button>
+            <a href="tickets.html" target="blank"><button id="tix">Buy Tickets Now!</button></a>
         </div>
 
         <div class="section-box rain">
@@ -196,7 +191,7 @@
         </div>
         <!-- Adjusted Parking Text to not repeat box style -->
         <div class="Parking-text">
-            <h1>Parking is FREE at the Tufts Zoo</h1>
+            <h2>Parking is FREE at the Tufts Zoo</h2>
             <p>Parking for the zoo is located in the large lot across the street from our main entrance.</p>
             <p>Handicap Parking is accessible next to employee parking in the front entrance lot.</p>
         </div>
