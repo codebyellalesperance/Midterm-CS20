@@ -123,6 +123,9 @@
             var cvv = inputs[6];
             var expiration = inputs[7];
             
+            // Default value for ticket amounts is 0
+            adultAmount.value = adultAmount.value == "" ? 0 : adultAmount.value;
+            childSeniorAmount.value = childSeniorAmount.value == "" ? 0 : childSeniorAmount.value;
             
             // Required inputs shouldn't be empty
             for (var i = 0; i < inputs.length; i++) {
@@ -134,14 +137,14 @@
                 }
             }
             
-            // Ticket amounts should be a positive integer
-            if (adultAmount.value <= 0) {
+            // Ticket amounts should be non-negative integers
+            if (adultAmount.value < 0) {
                 valid = false;
                 adultAmount.style.border = "1px solid #ff0000";
             } else {
                 adultAmount.style.border = "1px solid #000000";
             }
-            if (childSeniorAmount.value <= 0) {
+            if (childSeniorAmount.value < 0) {
                 valid = false;
                 childSeniorAmount.style.border = "1px solid #ff0000";
             } else {
