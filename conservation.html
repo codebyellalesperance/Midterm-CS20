@@ -6,6 +6,55 @@
     <title>Tufts Zoo Homepage</title>
     <link rel="icon" type="image/x-icon" href="elephant.png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #page-title {
+            background-image: url("images/img3.webp");
+        }
+
+        .conservation-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .conservation-box {
+            width: 40%;
+            margin: 1vw;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .conservation-box:hover {
+            transform: scale(1.05);
+        }
+
+        .conservation-box h3 {
+            color: #4CAF50;
+        }
+
+        .conservation-box p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .conservation-box {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .conservation-box {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,7 +70,7 @@
                     <li><a href="visitor-info.html">Visitor Info</a></li>
                     <li><a href="donate.html">Give Back</a></li>
                     <li><a href="conservation.html" class="selected">Conservation</a></li>
-                    <li><a href="contact.html" class="nav-button">Contact Us!</a></li>
+                    <li><a href="contact.html" class="nav-button">Visit Us!</a></li>
 
                 </ul>
             </nav>
@@ -29,16 +78,66 @@
     </header>
     
     <main>
-        <section>
-            <img src="images/img3.webp" class="background" />
-
-            
-            
+        <section id="page-title" class="background">
+            <h1>Conservation</h1>
+        </section>
+        <section class="conservation-content">
+            <div class="conservation-container">&nbsp;</div>
         </section>
     </main>
+    
     <footer>
         <p>&copy; 2024 Tufts Zoo. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script>
+    const conservationEfforts = [
+    {
+        title: "Elephant Protection Initiative",
+        description: "Our Elephant Protection Initiative focuses on anti-poaching efforts, habitat conservation, and community education programs to ensure a future for these majestic creatures."
+    },
+    {
+        title: "Marine Life Preservation",
+        description: "Our Marine Life Preservation program supports coral reef restoration, sustainable fishing practices, and the protection of endangered marine species."
+    },
+    {
+        title: "Reforestation Projects",
+        description: "Through our Reforestation Projects, we aim to restore deforested lands, promote biodiversity, and fight climate change by planting millions of trees worldwide."
+    },
+    {
+        title: "Wildlife Rehabilitation Center",
+        description: "Our Wildlife Rehabilitation Center provides care for injured, orphaned, or sick animals with the aim of returning them to their natural habitat, fostering coexistence."
+    },
+    {
+        title: "Pollinator Protection Plan",
+        description: "This initiative seeks to protect and expand the habitats of vital pollinators such as bees and butterflies, which play a crucial role in our ecosystems and agriculture."
+    },
+    {
+        title: "Freshwater Conservation Strategy",
+        description: "Aiming to preserve freshwater ecosystems, our strategy includes projects for cleaning up rivers, protecting watersheds, and restoring habitats for aquatic life."
+    },
+    {
+        title: "Urban Wildlife Sanctuary",
+        description: "Our Urban Wildlife Sanctuary project creates safe spaces for wildlife in urban areas, promoting biodiversity and offering educational opportunities for city dwellers."
+    },
+    {
+        title: "Anti-Trafficking Campaign",
+        description: "This campaign fights against the illegal wildlife trade through education, advocacy, and partnership with law enforcement to protect endangered species."
+    }
+];
+
+
+    function populateConservationEfforts() {
+        const container = document.querySelector('.conservation-container');
+        conservationEfforts.forEach(effort => {
+            const box = document.createElement('div');
+            box.className = 'conservation-box';
+            box.innerHTML = `<h3>${effort.title}</h3><p>${effort.description}</p>`;
+            container.appendChild(box);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', populateConservationEfforts);
+</script>
+
 </body>
 </html>
