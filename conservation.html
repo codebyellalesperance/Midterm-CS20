@@ -83,43 +83,46 @@
     <footer>
         <p>&copy; 2024 Tufts Zoo. All rights reserved.</p>
     </footer>
+    
     <script>
+    
+    // Associative array containing information on conservation efforts
     const conservationEfforts = [
-    {
-        title: "Elephant Protection Initiative",
-        description: "Our Elephant Protection Initiative focuses on anti-poaching efforts, habitat conservation, and community education programs to ensure a future for these majestic creatures."
-    },
-    {
-        title: "Marine Life Preservation",
-        description: "Our Marine Life Preservation program supports coral reef restoration, sustainable fishing practices, and the protection of endangered marine species."
-    },
-    {
-        title: "Reforestation Projects",
-        description: "Through our Reforestation Projects, we aim to restore deforested lands, promote biodiversity, and fight climate change by planting millions of trees worldwide."
-    },
-    {
-        title: "Wildlife Rehabilitation Center",
-        description: "Our Wildlife Rehabilitation Center provides care for injured, orphaned, or sick animals with the aim of returning them to their natural habitat, fostering coexistence."
-    },
-    {
-        title: "Pollinator Protection Plan",
-        description: "This initiative seeks to protect and expand the habitats of vital pollinators such as bees and butterflies, which play a crucial role in our ecosystems and agriculture."
-    },
-    {
-        title: "Freshwater Conservation Strategy",
-        description: "Aiming to preserve freshwater ecosystems, our strategy includes projects for cleaning up rivers, protecting watersheds, and restoring habitats for aquatic life."
-    },
-    {
-        title: "Urban Wildlife Sanctuary",
-        description: "Our Urban Wildlife Sanctuary project creates safe spaces for wildlife in urban areas, promoting biodiversity and offering educational opportunities for city dwellers."
-    },
-    {
-        title: "Anti-Trafficking Campaign",
-        description: "This campaign fights against the illegal wildlife trade through education, advocacy, and partnership with law enforcement to protect endangered species."
-    }
-];
+        {
+            title: "Elephant Protection Initiative",
+            description: "Our Elephant Protection Initiative focuses on anti-poaching efforts, habitat conservation, and community education programs to ensure a future for these majestic creatures."
+        },
+        {
+            title: "Marine Life Preservation",
+            description: "Our Marine Life Preservation program supports coral reef restoration, sustainable fishing practices, and the protection of endangered marine species."
+        },
+        {
+            title: "Reforestation Projects",
+            description: "Through our Reforestation Projects, we aim to restore deforested lands, promote biodiversity, and fight climate change by planting millions of trees worldwide."
+        },
+        {
+            title: "Wildlife Rehabilitation Center",
+            description: "Our Wildlife Rehabilitation Center provides care for injured, orphaned, or sick animals with the aim of returning them to their natural habitat, fostering coexistence."
+        },
+        {
+            title: "Pollinator Protection Plan",
+            description: "This initiative seeks to protect and expand the habitats of vital pollinators such as bees and butterflies, which play a crucial role in our ecosystems and agriculture."
+        },
+        {
+            title: "Freshwater Conservation Strategy",
+            description: "Aiming to preserve freshwater ecosystems, our strategy includes projects for cleaning up rivers, protecting watersheds, and restoring habitats for aquatic life."
+        },
+        {
+            title: "Urban Wildlife Sanctuary",
+            description: "Our Urban Wildlife Sanctuary project creates safe spaces for wildlife in urban areas, promoting biodiversity and offering educational opportunities for city dwellers."
+        },
+        {
+            title: "Anti-Trafficking Campaign",
+            description: "This campaign fights against the illegal wildlife trade through education, advocacy, and partnership with law enforcement to protect endangered species."
+        }
+    ];
 
-
+    // Write the conservation efforts to the page
     function populateConservationEfforts() {
         const container = document.querySelector('.conservation-container');
         conservationEfforts.forEach(effort => {
