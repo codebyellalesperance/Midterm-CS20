@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tufts Zoo Homepage</title>
-    <link rel="icon" type="image/x-icon" href="elephant.png">
+    <link rel="icon" type="image/x-icon" href="images/elephant.png">
     <link rel="stylesheet" href="styles.css">
     <style type="text/css">
         
@@ -14,23 +14,9 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        .background {
-            height: 100vh;
+        
+        #page-title {
             background-image: url("images/img6.webp");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .background h1 {
-            color: #ffffff;
-            font-size: 140px;
-            margin: 0;
         }
 
         .content-section, .section-box, .ticket-option, .rain-policy, .visitor-guidelines, .parking, .Parking-text, .Rain-text, .Visitor-text {
@@ -43,7 +29,7 @@
         }
 
         .content-section p, .section-box p, .ticket-option p, .rain-policy p, .Rain-text p, .Parking-text p, .Visitor-text p {
-            font-size: 18px;
+            font-size: 3vw;
             line-height: 1.6;
             color: #666;
             
@@ -54,18 +40,7 @@
             color: white;
         }
 
-        @media (max-width: 768px) {
-            /* .background h1 {
-                font-size: 40px;
-            } */
-
-            .content-section h1, .content-section p {
-                font-size: 24px; /* Adjusted for a more consistent look */
-            }
-        }
-
         .ticket-options-container {
-            padding-top: px;
             display: flex;
             justify-content: space-around; /* Centers and spaces out the ticket option boxes */
             flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
@@ -76,10 +51,10 @@
             background-color: #f9f9f9;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            padding: 20px;
-            margin: 10px; /* Ensures some space between boxes */
+            padding: 4vw;
+            margin: 3vw; /* Ensures some space between boxes */
             flex: 1; /* Boxes will grow to fit available space */
-            min-width: 280px; /* Minimum width before wrapping */
+            /* min-width: 280px; Minimum width before wrapping */
         }
 
         @media (max-width: 768px) {
@@ -89,7 +64,7 @@
             }
 
             .ticket-option {
-                width: 90%; /* Adjusts width to fit smaller screens */
+                width: 80%; /* Adjusts width to fit smaller screens */
                 margin-bottom: 20px; /* Adds bottom margin for spacing between stacked boxes */
             }
         }
@@ -167,7 +142,7 @@
     </header>
     
     <main>
-        <section class="background">
+        <section id="page-title" class="background">
             <h1>Visitor Info</h1>
         </section>
 
