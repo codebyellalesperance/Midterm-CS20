@@ -1,118 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tufts Zoo Tickets page</title>
-    <link rel="icon" type="image/x-icon" href="elephant.png">
+    <title>Tufts Zoo Homepage</title>
+    <link rel="icon" type="image/x-icon" href="images/elephant.png">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .error {
-            color: red;
-            margin-top: 5px;
-            display: none; /* Hide the error message initially */
+        #inner-body {
+            margin: 30px 10vw 0 4vw;
+        }
+        
+        #ticket-form {
+            font-size: max(16px, 1.7vw);
+            margin-left: 0;
+            padding-left: 5vw;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-right: 2vw;
+        }
+        
+        input {
+            font-size: max(14px, 1.5vw);;
+        }
+        
+        input[type="number"] {
+            width: 10%;
+            min-width: 50px;
+            font-size: max(14px, 1.5vw);;
+        }
+        
+        input[type="submit"] {
+            width: 80%;
+            margin: 15px 0;
+            background-color: #6ea3e0;
+            color: white;
+            padding: 10px 0;
+            border-radius: 5px;
+        }   
+        
+        input[type=submit]:hover {
+            background-color: #512C1D;
+            cursor: pointer;
+        }
+        
+        .small-label {
+            margin-right: 0.5vw;
+        }
+        
+        .small-text {
+            width: 10%;
+            min-width: 50px;
+            margin-right: 2vw;
+        }
+        
+        .section-box {
+            width: 100%;
+        }
+        
+        .field {
+            display: flex;
+            margin: max(5px, 1vw) 0;
+            flex-direction: column;
+            line-height: max(28px, 3vw);
+            width: 80%;
+        }
+        
+        @media screen and (max-width: 768px){
+            .field {
+                width: 95%;
+            }
+            input[type="submit"] {
+                width: 95%;
+            }   
         }
     </style>
-</head>
-
-<body>
-    <header>
-        <h1>Purchase Tickets</h1>
-    </header>
-
-    <form id="ticket-form" novalidate>
-        <div style="padding-bottom:10px; margin-left:30px">
-            <label for="adult-tickets">Adult Tickets:</label>
-            <input type="number" name="adult-tickets" id="adult-tickets" value="0">
-        </div>
-        <div style="padding-bottom:10px; margin-left:30px">
-            <label for="child-senior-tickets">Child/Senior Tickets:</label>
-            <input type="number" name="child-senior-tickets" id="child-senior-tickets" value="0">
-        </div>
-        <div style="padding-bottom:10px; margin-left:30px">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
-        </div>
-        <div style="padding-bottom:10px; margin-left:30px">
-            <label for="credit-card">Credit Card Number:</label>
-            <input type="text" name="credit-card" id="credit-card">
-        </div>
-        <div style="padding-bottom:10px; margin-left:30px">
-            <label for="security-code">Security Code:</label>
-            <input type="text" name="security-code" id="security-code">
-        </div>
-        <div style="padding-bottom:10px; margin-left:30px">
-            <label for="expiration-date">Expiration Date:</label>
-            <input type="text" name="expiration-date" id="expiration-date">
-        </div>
-        <div class="error" id="submit-error">&nbsp;</div>
-        <input type="submit" value="Submit" style="margin-left:30px">
-    </form>
-
-    <div id="results" style="padding-top:15px; margin-left:30px">&nbsp;</div>
 
     <script>
         function showMoney(number) {
-            Round = Math.floor(number * 100 + 0.5);
-            Rounded = parseInt(Round);
-            temp = Rounded;
-            Rounded = Rounded / 100;
-            if (temp % 100 == 0) {
-                return Rounded.toString() + ".00";
-            } else if (temp % 10 == 0) {
-                return Rounded.toString() + "0";
-            } else {
-                return Rounded.toString();
-            }
-        }
+           Round = Math.floor(number * 100 + 0.5);
+           Rounded = parseInt(Round);
+           temp = Rounded;
+           Rounded = Rounded / 100;
+           if (temp % 100 == 0) {
+               return Rounded.toString() + ".00";
+           } else if (temp % 10 == 0) {
+               return Rounded.toString() + "0";
+           } else {
+               return Rounded.toString();
+           }
+       }
 
-        const AdultTicketPrice = 37;
-        const ChildSeniorTicketPrice = 30;
+       const AdultTicketPrice = 37;
+       const ChildSeniorTicketPrice = 30;
 
         $(document).ready(function() {
             $("#ticket-form").submit(function(event) {
                 event.preventDefault();
-                var adultTickets = parseInt($("#adult-tickets").val());
-                var childSeniorTickets = parseInt($("#child-senior-tickets").val());
-                var email = $("#email").val();
-                var creditCard = $("#credit-card").val();
-                var securityCode = $("#security-code").val();
-                var expirationDate = $("#expiration-date").val();
-                var submitError = $("#submit-error");
+                validate();
+            });
+        });
 
-                submitError.hide().html('&nbsp;'); // Hide and reset the submit error message
 
-                if (adultTickets <= 0 || childSeniorTickets <= 0) {
-                    submitError.html('Please enter valid ticket quantities.').show();
-                    return;
+        function validate() {
+            // Get all the input elements
+            var form = document.getElementById("ticket-form");
+            var inputs = form.getElementsByTagName("input");
+            var valid = true;
+            var adultAmount = inputs[0];
+            var childSeniorAmount = inputs[1];
+            var email = inputs[4]
+            var card = inputs[5];
+            var cvv = inputs[6];
+            var expiration = inputs[7];
+            
+            
+            // Required inputs shouldn't be empty
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value == "") {
+                    valid = false;
+                    inputs[i].style.border = "1px solid #ff0000";
+                } else {
+                    inputs[i].style.border = "1px solid #000000";
                 }
-
-                if (!email || email.indexOf('@') === -1) {
-                    submitError.html('Please enter a valid email.').show();
-                    return;
+            }
+            
+            // Ticket amounts should be a positive integer
+            if (adultAmount.value <= 0) {
+                valid = false;
+                adultAmount.style.border = "1px solid #ff0000";
+            } else {
+                adultAmount.style.border = "1px solid #000000";
+            }
+            if (childSeniorAmount.value <= 0) {
+                valid = false;
+                childSeniorAmount.style.border = "1px solid #ff0000";
+            } else {
+                childSeniorAmount.style.border = "1px solid #000000";
+            }
+            
+            // Card number should be a 16 digit integer
+            if (card.value.length != 16 || isNaN(card.value)) {
+                valid = false;
+                card.style.border = "1px solid #ff0000";
+            } else {
+                card.style.border = "1px solid #000000";
+            }
+            
+            // Security code should be a 3 digit integer
+            if (cvv.value.length !== 3 || isNaN(cvv.value)) {
+                valid = false;
+                cvv.style.border = "1px solid #ff0000";
+            } else {
+                cvv.style.border = "1px solid #000000";
+            }
+            
+            // Expiration date should be in the format MM/YY
+            if (expiration.value.length !== 5 || expiration.value[2] !== "/") {
+                valid = false;
+                expiration.style.border = "1px solid #ff0000";
+            } else {
+                var expiry = expiration.value.split("/");
+                // Month should be an integer between 1 and 12, year should be 24 or later
+                if (expiry.length !== 2 || isNaN(expiry[0]) || isNaN(expiry[1]) || expiry[0] < 1 || expiry[0] > 12 || expiry[1] < 24) {
+                    valid = false;
+                    expiration.style.border = "1px solid #ff0000";
+                } else {
+                    expiration.style.border = "1px solid #000000";
                 }
-
-                if (creditCard.length !== 16) {
-                    submitError.html('Please enter a valid 16-digit credit card number.').show();
-                    return;
-                }
-
-                if (securityCode.length !== 3) {
-                    submitError.html('Please enter a valid 3-digit security code.').show();
-                    return;
-                }
-
-                if (expirationDate.length !== 5) {
-                    submitError.html('Please enter a valid expiration date (MM/YY).').show();
-                    return;
-                }
-
+            }
+            
+            if (valid) {
+                var adultTickets = adultAmount.value;
+                var childSeniorTickets = childSeniorAmount.value;
+                var email = email.value;
+                var creditCard = card.value;
+                var securityCode = cvv.value;
+                var expirationDate = expiration.value;
+            
                 var totalAdultCost = adultTickets * AdultTicketPrice;
                 var totalChildSeniorCost = childSeniorTickets * ChildSeniorTicketPrice;
                 var subtotal = totalAdultCost + totalChildSeniorCost;
                 var tax = subtotal * 0.0625;
                 var finalTotal = subtotal + tax;
+
 
                 var confirmation = "Thank you for your purchase!<br>";
                 confirmation += "Adult Tickets: " + adultTickets + "    Price: $" + showMoney(totalAdultCost) + "<br>";
@@ -122,10 +197,88 @@
                 confirmation += "Final Total: $" + showMoney(finalTotal) + "<br>";
                 confirmation += "A Confirmation Email With Tickets Will Be Sent to: " + email;
 
+
                 var results = $("#results");
                 results.html(confirmation);
-            });
-        });
+
+            }
+
+            
+            return valid;
+        }
     </script>
+    
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" alt="Zoo Adventure Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="animals.html">Animals</a></li>
+                    <li><a href="visitor-info.html">Visitor Info</a></li>
+                    <li><a href="donate.html" class="selected">Give Back</a></li>
+                    <li><a href="conservation.html">Conservation</a></li>
+                    <li><a href="contact.html" class="nav-button">Visit Us!</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div id="inner-body">
+            <div id="intro">
+                <h3>Buy your tickets!</h3>
+                <p>Thank you for choosing to Tufts Zoo. We hope to see you soon!</p>
+            </div>
+            <form id="ticket-form" class="section-box">
+                <div class="field">
+                    <span>
+                        <label for="adultAmount">Adult Tickets: </label><input type="number" id="adultAmount" name="adult-amount" placeholder="0">
+                    </span>
+                </div>
+                <div class="field">
+                    <span>
+                        <label for="childSeniorAmount">Child/Senior Tickets: </label><input type="number" id="childSeniorAmount" name="child-senior-amount" placeholder="0">
+                    </span>
+                </div>
+                <div class="field">
+                    <label for="first">First Name: </label><input type="text" id="first" name="first-name">
+                </div>
+                <div class="field">
+                    <label for="last">Last Name: </label><input type="text" id="last" name="last-name">
+                </div>
+                <div class="field">
+                    <label for="email">Email: </label><input type="email" id="email" name="email">
+                </div>
+                <div class="field">
+                    <label for="card">Credit Card Number: </label><input type="text" id="card" name="credit-card" placeholder="1234123412341234">
+                </div>
+                <div class="field">
+                    <span>
+                        <label class="small-label" for="cvv">Security Code: </label><input type="text" class="small-text" id="cvv" name="security-code" placeholder="123">
+                        <label class="small-label" for="expiration">Expiration Date: </label><input type="text" id="expiration" class="small-text" name="expiration-date" placeholder="MM/YY">
+                    </span>
+                </div>
+                <div class="field">
+                    <label for="comments">Comments (optional): </label><textarea id="comments" name="comments" rows="8" cols="50"></textarea>
+                </div>
+                <input type="submit" value="Checkout">
+                
+            </form>
+        </div>
+
+        <div id="results" style="padding-top:12px; margin-left:4vw">&nbsp;</div>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Tufts Zoo. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
