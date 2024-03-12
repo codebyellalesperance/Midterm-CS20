@@ -8,6 +8,14 @@
     <link rel="icon" type="image/x-icon" href="elephant.png">
     <link rel="stylesheet" href="styles.css">
     <style>
+        #page-title {
+            background-image: url("images/mainzoo.webp");
+        }
+        
+        #page-title h1 {
+            margin: 2vw;
+        }
+        
         body, html {
             margin: 0;
             height: 100%;
@@ -15,42 +23,22 @@
         }
 
         .welcome-section {
-            padding-top: 10%;
-            padding-left: 10% ;
-            padding-right: 10% ;
-            position: relative;
+            display: flex;
             text-align: center;
-            color: white;
+            margin: 0 auto;
+            flex-direction: column;
         }
 
-        .welcome-section .background {
-            width: 100%;
-            height: fit-content;
-            object-fit: cover;
-            /* opacity: 0.7; */
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
+        .welcome-section .section-box {
+            font-size: min(5vw, 40px);
+            /* text-shadow: 1px 1px 3px #000; */
+            background-color: #f0f0f0;
+            margin: 4vh auto;
+            width: 80%;
+            padding: 0 3vw;
+            
         }
-
-        .welcome-section h1,
-        .welcome-section p {
-            position: relative;
-            z-index: 1;
-        }
-
-        .welcome-section h1 {
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px #000;
-            margin: 0.5em 0;
-        }
-
-        .welcome-section p {
-            font-size: 1.2em;
-            text-shadow: 1px 1px 3px #000;
-            margin-bottom: 0.5em;
-        }
+       
     </style>
 </head>
 <body>
@@ -74,12 +62,13 @@
     </header>
     
     <main>
-        <section class="welcome-section">
+        <section id="page-title" class="background">
             <h1>Welcome to Tufts Zoo!</h1>
-            <p>Join us for an unforgettable adventure into the wild. At Tufts Zoo, we pride ourselves on creating harmonious connections between our visitors and the many remarkable species that call our grounds home.</p>
-            <p>At the Tufts Zoo, our mission is to promote wildlife conservation, provide education about endangered species, and offer unforgettable experiences for our visitors.</p>
-            <p>Established in 1950, Tufts Zoo aimed to create a refuge for endangered species. In the past 74 years, it has opened its doors to more than 10 million visitors.</p>
-            <img src="images/mainzoo.webp" alt="Scenic view of Tufts Zoo" class="background" />
+        </section>
+        <section class="welcome-section">
+            <div class="section-box"><p>Join us for an unforgettable adventure into the wild. At Tufts Zoo, we pride ourselves on creating harmonious connections between our visitors and the many remarkable species that call our grounds home.</p></div>
+            <div class="section-box"><p>At the Tufts Zoo, our mission is to promote wildlife conservation, provide education about endangered species, and offer unforgettable experiences for our visitors.</p></div>
+            <div class="section-box"><p>Established in 1950, Tufts Zoo aimed to create a refuge for endangered species. In the past 74 years, it has opened its doors to more than 10 million visitors.</p></div>
         </section>
     </main>
     <footer>
