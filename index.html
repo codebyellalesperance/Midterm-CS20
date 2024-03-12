@@ -27,19 +27,51 @@
             text-align: center;
             margin: 0 auto;
             flex-direction: column;
-            padding-bottom: 100px;
+            padding-bottom: 50px;
             
         }
 
-        .welcome-section .section-box {
-            font-size: min(5vw, 30px);
+        .section-info {
+            padding: 3vw;
+            display: flex;
+        }
+        
+        .section-box {
+            font-size: min(4vw, 30px);
             /* text-shadow: 1px 1px 3px #000; */
             background-color: #f0f0f0;
-            margin: 4vh auto;
-            width: 80%;
+            margin: 0;
             padding: 0 3vw;
-            
-            
+            text-align: left;
+            float: left;
+            width: 70%;
+        }
+        
+        .section-box p {
+            margin-bottom: 10px;
+            padding: 0;
+            line-height: 4vw; 
+        }
+        
+        .section-image {
+            object-fit: cover;
+            width: 30%;
+            height: auto;
+            border: 2px solid #333;
+            border-left: none;
+        }
+        
+        .learn-more {
+            display: block;
+            background-color: #4b4242;
+            color: #ffffff;
+            padding: 1vw 3vw;
+            font-size: 1.2vw;
+            margin-bottom: 20px;
+        }
+        
+        .learn-more:hover {
+            cursor: pointer;
         }
 
     </style>
@@ -69,9 +101,27 @@
             <h1>Welcome to Tufts Zoo!</h1>
         </section>
         <section class="welcome-section">
-            <div class="section-box"><p>Join us for an unforgettable adventure into the wild. <br>At Tufts Zoo, we pride ourselves on creating harmonious connections between our visitors and the many remarkable species that call our grounds home.</p></div>
-            <div class="section-box"><p>At the Tufts Zoo, our mission is to promote wildlife conservation, provide education about endangered species, <br> and offer unforgettable experiences for our visitors.</p></div>
-            <div class="section-box"><p>Established in 1950, Tufts Zoo aimed to create a refuge for endangered species. <br> In the past 74 years, it has opened its doors to more than 10 million visitors.</p></div>
+            <div class="section-info">
+                <div class="section-box">
+                    <p>Join us for an unforgettable adventure into the wild. At Tufts Zoo, we pride ourselves on creating harmonious connections between our visitors and the many remarkable species that call our grounds home.</p>
+                    <button class="learn-more" onclick="location.href='animals.html';">Learn More About Our Animals</button>
+                </div>
+                <img class="section-image" src="images/animal_macaw.webp" alt="Macaw">
+            </div>
+            <div class="section-info">
+                <div class="section-box">
+                    <p>At the Tufts Zoo, our mission is to promote wildlife conservation, provide education about endangered species, research behaviors of animals, and offer unforgettable experiences for our visitors.</p>
+                    <button class="learn-more" onclick="location.href='conservation.html';">Learn More About Conservation</button>
+                </div>
+                <img class="section-image" src="images/animal_lion.webp" alt="lion">
+            </div>
+            <div class="section-info">
+                <div class="section-box">
+                    <p>Established in 1950, Tufts Zoo aimed to create a refuge for endangered species. In the past 74 years, it has opened its doors to more than 10 million visitors, allowing them to learn about animals in their habitats.</p>
+                    <button class="learn-more" onclick="location.href='visitor-info.html';">Visit Now!</button>
+                </div>
+                <img class="section-image" src="images/animal_flamingo.webp" alt="Flamingo">
+            </div>
         </section>
     </main>
     <footer>

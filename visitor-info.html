@@ -88,10 +88,6 @@
         #tix:hover {
             cursor: pointer;
         }
-
-        .Buy-tickets a {
-            text-decoration: none;
-        }
         
         .admissions {
             margin-top: 20px;
@@ -149,7 +145,7 @@
         </div>
         
         <div class="Buy-tickets">
-            <a href="tickets.html" target="blank"><button id="tix">Buy Tickets Now!</button></a>
+            <button id="tix" onclick="window.open('tickets.html', '_blank');">Buy Tickets Now!</button>
         </div>
 
         <div class="section-box rain">
