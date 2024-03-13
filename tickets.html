@@ -151,6 +151,13 @@
                 childSeniorAmount.style.border = "1px solid #000000";
             }
             
+            // Purchase at least one ticket
+            if (adultAmount.value == 0 && childSeniorAmount.value == 0) {
+                valid = false;
+                adultAmount.style.border = "1px solid #ff0000";
+                childSeniorAmount.style.border = "1px solid #ff0000";
+            }
+            
             // Card number should be a 16 digit integer
             if (card.value.length != 16 || isNaN(card.value)) {
                 valid = false;
